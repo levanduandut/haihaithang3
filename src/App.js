@@ -1,24 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import Slidebar from "./components/SlideBar/Slidebar";
+import { BrowserRouter as Router ,Routes as Switch,Route } from "react-router-dom";
+import Generality from "./pages/Generality";
+import TableSalary from "./pages/TableSalary";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Slidebar/>
+      <Switch>
+        <Route path="/generality" exact Component={Generality}/>
+        <Route path="/salary-table" exact Component={TableSalary}/>
+      </Switch>
+    </Router>
   );
 }
 
